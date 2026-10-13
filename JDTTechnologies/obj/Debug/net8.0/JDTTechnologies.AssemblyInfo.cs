@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JDTTechnologies")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a467b1c3daacb4ca94cab864bf624a0058b92de")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7a2c90180e87fb3a1e59b45e2f960f575bf2b7d")]
 [assembly: System.Reflection.AssemblyProductAttribute("JDTTechnologies")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JDTTechnologies")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
