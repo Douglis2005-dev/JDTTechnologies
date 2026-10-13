@@ -6,4 +6,35 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="ClientApp\src\components\**" />
+    <Compile Remove="wwwroot\dist\**" />
+    <Content Remove="ClientApp\src\components\**" />
+    <Content Remove="wwwroot\dist\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\**" />
+    <EmbeddedResource Remove="wwwroot\dist\**" />
+    <None Remove="ClientApp\src\components\**" />
+    <None Remove="wwwroot\dist\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\islands\Counter.tsx" />
+    <None Remove="ClientApp\src\islands\HeroAurora.tsx" />
+    <None Remove="ClientApp\src\islands\HeroTitle.tsx" />
+    <None Remove="ClientApp\src\islands\ServiceTiltedCard.tsx" />
+    <None Remove="ClientApp\src\main.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\islands\Counter.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\islands\HeroAurora.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\islands\HeroTitle.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\islands\ServiceTiltedCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\main.tsx" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,522 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDT TECHNOLOGICS | Tecnología a tu medida</title>
+    <meta name="description" content="JDT TECHNOLOGICS - Desarrollo a medida, desarrollo web, desarrollo móvil y automatizaciones.">
+    <meta name="author" content="JDT TECHNOLOGICS">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="JDT TECHNOLOGICS | Tecnología a tu medida">
+    <meta property="og:description" content="Desarrollo a medida, web, móvil y automatizaciones.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://jdttechnologics.com/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="JDT TECHNOLOGICS">
+
+    <link rel="icon" type="image/png" href="images/JDTTechnologies.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+    <!-- Cursor glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="scroll-progress"></div>
+
+    <!-- Header fijo -->
+    <header class="header" id="header">
+        <a href="#inicio" class="header-logo" aria-label="JDT TECHNOLOGICS - Inicio">
+            <img src="images/JDTTechnologies.jpeg" alt="JDT TECHNOLOGICS" class="header-logo-icon">
+            <span class="header-logo-text">
+                <span class="header-logo-jdt">JDT</span>
+                <span class="header-logo-sub">TECHNOLOGICS</span>
+            </span>
+        </a>
+        <nav class="header-nav" aria-label="Navegación principal">
+            <ul class="header-menu">
+                <li><a href="#que-hacemos">Qué hacemos</a></li>
+                <li><a href="#desarrollo-web">Web</a></li>
+                <li><a href="#desarrollo-movil">Móvil</a></li>
+                <li><a href="#automatizaciones">Automatizaciones</a></li>
+                <li><a href="#como-trabajamos">Proceso</a></li>
+                <li><a href="#contacto" class="cta-nav">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Menú móvil -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#que-hacemos">Qué hacemos</a></li>
+            <li><a href="#desarrollo-web">Desarrollo web</a></li>
+            <li><a href="#desarrollo-movil">Desarrollo móvil</a></li>
+            <li><a href="#automatizaciones">Automatizaciones</a></li>
+            <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- ============================================ -->
+        <!-- HERO -->
+        <!-- ============================================ -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <div class="hero-bee">
+                    <img src="images/JDTTechnologies.jpeg" alt="Abeja Robótica JDT TECHNOLOGICS" class="hero-bee-img">
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-title-static">Tecnología</span>
+                    <span class="hero-title-carousel">
+                        <span class="carousel-word active">a tu medida</span>
+                        <span class="carousel-word">que impulsa</span>
+                        <span class="carousel-word">sin límites</span>
+                        <span class="carousel-word">que transforma</span>
+                    </span>
+                </h1>
+                <p class="hero-subtitle">
+                    Desarrollo a medida, web, móvil y automatizaciones para hacer crecer tu negocio.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contacto" class="btn-primary">Hablemos de tu proyecto</a>
+                    <a href="#que-hacemos" class="btn-secondary">Ver servicios</a>
+                </div>
+            </div>
+
+            <!-- Indicador de scroll animado -->
+            <div class="scroll-hint">
+                <span>Scroll</span>
+                <div class="scroll-hint-line"></div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- QUÉ HACEMOS -->
+        <!-- ============================================ -->
+        <section id="que-hacemos" class="section">
+            <div class="section-container">
+                <header class="section-header reveal">
+                    <span class="section-tag">Servicios</span>
+                    <h2 class="section-title">Qué hacemos</h2>
+                    <p class="section-subtitle">Soluciones tecnológicas que impulsan tu negocio.</p>
+                </header>
+                <div class="services-grid">
+                    <article class="service-card reveal-scale">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M8 9l-3 3 3 3M16 9l3 3-3 3M14 7l-4 10" />
+                            </svg>
+                        </div>
+                        <h3>Desarrollo a medida</h3>
+                        <p>Software personalizado que se adapta a tus procesos y necesidades específicas.</p>
+                    </article>
+                    <article class="service-card reveal-scale">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="4" width="20" height="14" rx="2" />
+                                <path d="M8 22h8M12 18v4" />
+                                <path d="M6 8l-2 2 2 2M18 8l2 2-2 2" />
+                            </svg>
+                        </div>
+                        <h3>Desarrollo web</h3>
+                        <p>Sitios web modernos, rápidos y optimizados para convertir visitantes en clientes.</p>
+                    </article>
+                    <article class="service-card reveal-scale">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="7" y="2" width="10" height="20" rx="2" />
+                                <path d="M11 5h2" />
+                                <circle cx="12" cy="18" r="1" />
+                            </svg>
+                        </div>
+                        <h3>Desarrollo móvil</h3>
+                        <p>Aplicaciones nativas e híbridas para iOS y Android con experiencia excepcional.</p>
+                    </article>
+                    <article class="service-card reveal-scale">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="6" cy="6" r="3" />
+                                <circle cx="18" cy="6" r="3" />
+                                <circle cx="12" cy="18" r="3" />
+                                <path d="M9 6h6M6 9v3a3 3 0 003 3h0M18 9v3a3 3 0 01-3 3h0" />
+                            </svg>
+                        </div>
+                        <h3>Automatizaciones</h3>
+                        <p>Flujos inteligentes que eliminan tareas repetitivas y aumentan la productividad.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- DESARROLLO WEB -->
+        <!-- ============================================ -->
+        <section id="desarrollo-web" class="section section-alt">
+            <div class="section-container split">
+                <div class="split-text reveal-left">
+                    <span class="section-tag">Web</span>
+                    <h2 class="section-title">Desarrollo web</h2>
+                    <p class="section-subtitle">
+                        Creamos sitios web que no solo se ven increíbles, sino que también funcionan de manera impecable.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Diseño responsive</li>
+                        <li>Optimización SEO</li>
+                        <li>Alta velocidad de carga</li>
+                        <li>Seguridad avanzada</li>
+                    </ul>
+                </div>
+                <div class="split-visual reveal-right">
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <div class="browser-url">jdttechnologics.com</div>
+                        </div>
+                        <div class="browser-body">
+                            <div class="mockup-nav">
+                                <div class="mockup-logo"></div>
+                                <div class="mockup-links"><span></span><span></span><span></span></div>
+                            </div>
+                            <div class="mockup-hero">
+                                <div class="mockup-line large"></div>
+                                <div class="mockup-line medium"></div>
+                                <div class="mockup-line small"></div>
+                            </div>
+                            <div class="mockup-cards">
+                                <div class="mockup-card"></div>
+                                <div class="mockup-card"></div>
+                                <div class="mockup-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- DESARROLLO MÓVIL -->
+        <!-- ============================================ -->
+        <section id="desarrollo-movil" class="section">
+            <div class="section-container split reverse">
+                <div class="split-text reveal-right">
+                    <span class="section-tag">Móvil</span>
+                    <h2 class="section-title">Desarrollo móvil</h2>
+                    <p class="section-subtitle">
+                        Aplicaciones nativas e híbridas con experiencia de usuario excepcional en iOS y Android.
+                    </p>
+                    <ul class="feature-list">
+                        <li>UI/UX centrado en el usuario</li>
+                        <li>Rendimiento optimizado</li>
+                        <li>Publicación en tiendas</li>
+                        <li>Soporte multiplataforma</li>
+                    </ul>
+                </div>
+                <div class="split-visual reveal-left">
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="phone-avatar"></div>
+                            <div class="phone-line large"></div>
+                            <div class="phone-line medium"></div>
+                            <div class="phone-cards">
+                                <div class="phone-card"></div>
+                                <div class="phone-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- AUTOMATIZACIONES -->
+        <!-- ============================================ -->
+        <section id="automatizaciones" class="section section-alt">
+            <div class="section-container split">
+                <div class="split-text reveal-left">
+                    <span class="section-tag">IA</span>
+                    <h2 class="section-title">Automatizaciones</h2>
+                    <p class="section-subtitle">
+                        Conecta tus sistemas y automatiza procesos para que tu equipo se enfoque en lo que realmente importa.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Integración con APIs</li>
+                        <li>Flujos con IA</li>
+                        <li>Notificaciones inteligentes</li>
+                        <li>Reportes automáticos</li>
+                    </ul>
+
+                    <div class="automation-controls">
+                        <button id="automation-play" class="btn-primary" aria-label="Iniciar flujo">
+                            <span class="play-icon">▶</span> Iniciar flujo
+                        </button>
+                        <button id="automation-reset" class="btn-secondary" aria-label="Reiniciar flujo">
+                            Reiniciar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="split-visual reveal-right">
+                    <div class="automation-flow" id="automationFlow">
+                        <!-- Líneas SVG conectoras -->
+                        <svg class="flow-svg" viewBox="0 0 400 500" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#FACC15" stop-opacity="0.1" />
+                                    <stop offset="100%" stop-color="#FACC15" stop-opacity="0.4" />
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Líneas base -->
+                            <path class="flow-line-base" d="M 200 110 L 200 200" />
+                            <path class="flow-line-base" d="M 200 310 L 200 400" />
+
+                            <!-- Líneas activas (se "llenan" al pasar el pulso) -->
+                            <path class="flow-line-active" d="M 200 110 L 200 200" />
+                            <path class="flow-line-active" d="M 200 310 L 200 400" />
+                        </svg>
+
+                        <!-- Nodos -->
+                        <div class="flow-node" data-step="1" data-title="Entrada de datos"
+                             data-desc="Recibe información desde formularios, APIs o bases de datos externas.">
+                            <div class="flow-node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2v6m0 0l-3-3m3 3l3-3M5 12v6a2 2 0 002 2h10a2 2 0 002-2v-6" />
+                                </svg>
+                            </div>
+                            <div class="flow-node-text">
+                                <h4>Entrada</h4>
+                                <span>Datos</span>
+                            </div>
+                            <div class="flow-node-pulse"></div>
+                        </div>
+
+                        <div class="flow-node" data-step="2" data-title="Proceso con IA"
+                             data-desc="Modelos de inteligencia artificial procesan, clasifican y enriquecen los datos.">
+                            <div class="flow-node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1" />
+                                </svg>
+                            </div>
+                            <div class="flow-node-text">
+                                <h4>Proceso IA</h4>
+                                <span>Análisis</span>
+                            </div>
+                            <div class="flow-node-pulse"></div>
+                        </div>
+
+                        <div class="flow-node" data-step="3" data-title="Salida y notificación"
+                             data-desc="Los resultados se envían al destino: email, dashboard, webhook o sistema externo.">
+                            <div class="flow-node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                                </svg>
+                            </div>
+                            <div class="flow-node-text">
+                                <h4>Salida</h4>
+                                <span>Resultados</span>
+                            </div>
+                            <div class="flow-node-pulse"></div>
+                        </div>
+
+                        <!-- Tarjeta de detalle (aparece al click) -->
+                        <div class="flow-detail" id="flowDetail">
+                            <button class="flow-detail-close" aria-label="Cerrar">×</button>
+                            <h5 id="flowDetailTitle">Título</h5>
+                            <p id="flowDetailDesc">Descripción</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ============================================ -->
+        <!-- CÓMO TRABAJAMOS -->
+        <!-- ============================================ -->
+        <section id="como-trabajamos" class="section">
+            <div class="section-container">
+                <header class="section-header reveal">
+                    <span class="section-tag">Proceso</span>
+                    <h2 class="section-title">Cómo trabajamos</h2>
+                    <p class="section-subtitle">Un proceso claro, ágil y transparente.</p>
+                </header>
+                <div class="process-grid">
+                    <div class="process-step reveal">
+                        <span class="process-number">01</span>
+                        <h3>Analizamos</h3>
+                        <p>Estudiamos tu negocio, tus objetivos y tus usuarios para entender qué necesitas realmente.</p>
+                    </div>
+                    <div class="process-step reveal">
+                        <span class="process-number">02</span>
+                        <h3>Desarrollamos</h3>
+                        <p>Construimos tu solución con metodologías ágiles y feedback constante.</p>
+                    </div>
+                    <div class="process-step reveal">
+                        <span class="process-number">03</span>
+                        <h3>Entregamos</h3>
+                        <p>Lanzamos tu producto y te acompañamos con soporte continuo y mejoras.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- NÚMEROS -->
+        <!-- ============================================ -->
+        <section id="numeros" class="section section-alt">
+            <div class="section-container">
+                <header class="section-header reveal">
+                    <span class="section-tag">Resultados</span>
+                    <h2 class="section-title">Números que hablan</h2>
+                </header>
+                <div class="numbers-grid">
+                    <div class="number-item reveal">
+                        <div class="number-value"><span class="counter" data-target="150">0</span>+</div>
+                        <div class="number-label">Proyectos entregados</div>
+                    </div>
+                    <div class="number-item reveal">
+                        <div class="number-value"><span class="counter" data-target="98">0</span>%</div>
+                        <div class="number-label">Clientes satisfechos</div>
+                    </div>
+                    <div class="number-item reveal">
+                        <div class="number-value"><span class="counter" data-target="5">0</span>+</div>
+                        <div class="number-label">Años de experiencia</div>
+                    </div>
+                    <div class="number-item reveal">
+                        <div class="number-value"><span class="counter" data-target="24">0</span>/7</div>
+                        <div class="number-label">Soporte disponible</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- CONTACTO -->
+        <!-- ============================================ -->
+        <section id="contacto" class="section">
+            <div class="section-container">
+                <header class="section-header reveal">
+                    <span class="section-tag">Contacto</span>
+                    <h2 class="section-title">Hablemos de tu proyecto</h2>
+                    <p class="section-subtitle">Cuéntanos qué necesitas y te respondemos en menos de 24 horas.</p>
+                </header>
+                <div class="contact-grid">
+                    <form class="contact-form reveal-left" id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                            <div class="form-group">
+                                <label for="servicio">Servicio</label>
+                                <select id="servicio" name="servicio">
+                                    <option value="">Selecciona</option>
+                                    <option value="medida">Desarrollo a medida</option>
+                                    <option value="web">Desarrollo web</option>
+                                    <option value="movil">Desarrollo móvil</option>
+                                    <option value="automatizacion">Automatizaciones</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Enviar mensaje</button>
+                        <p class="form-message" id="formMessage"></p>
+                    </form>
+                    <aside class="contact-info reveal-right">
+                        <a href="mailto:info@jdttechnologics.com" class="info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="M22 7l-10 6L2 7" />
+                            </svg>
+                            <div>
+                                <strong>Correo</strong>
+                                <span>info@jdttechnologics.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+34600000000" class="info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                            <div>
+                                <strong>Teléfono</strong>
+                                <span>+34 600 000 000</span>
+                            </div>
+                        </a>
+                        <div class="info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <div>
+                                <strong>Ubicación</strong>
+                                <span>Madrid, España</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- FOOTER -->
+        <!-- ============================================ -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <img src="images/JDTTechnologies.jpeg" alt="JDT TECHNOLOGICS" class="footer-bee">
+                    <div>
+                        <strong>JDT TECHNOLOGICS</strong>
+                        <span>Tecnología a tu medida</span>
+                    </div>
+                </div>
+                <nav class="footer-links">
+                    <a href="#que-hacemos">Qué hacemos</a>
+                    <a href="#desarrollo-web">Web</a>
+                    <a href="#desarrollo-movil">Móvil</a>
+                    <a href="#automatizaciones">Automatizaciones</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 JDT TECHNOLOGICS. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="~/js/Home.js"></script>
+</body>
+</html>
