@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Panel | JDT TECHNOLOGICS</title>
+    <link rel="icon" type="image/png" href="~/images/JDTTechnologies.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
+<body class="adm-layout">
+
+    <header class="adm-topbar" id="topbar">
+        <!-- Marca -->
+        <a class="adm-brand" href="~/admin" aria-label="JDT Panel - Inicio">
+            <span class="adm-brand-logo">
+                <img src="~/images/JDTTechnologies.jpeg" alt="">
+            </span>
+            <span class="adm-brand-text">
+                <b>JDT</b>
+                <small>Panel</small>
+            </span>
+        </a>
+
+        <!-- Buscador central -->
+        <div class="adm-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7" />
+                <path d="M21 21l-4.3-4.3" />
+            </svg>
+            <input type="search" id="globalSearch" placeholder="Buscar solicitudes…" aria-label="Buscar solicitudes">
+            <kbd>⌘K</kbd>
+        </div>
+
+        <!-- Nav principal (píldoras) -->
+        <nav class="adm-nav" id="admNav" aria-label="Menú del panel" hidden>
+            <button type="button" class="adm-nav-link is-active" data-view="solicitudes" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 6L2 7" /></svg>
+                <span>Solicitudes</span>
+                <span class="adm-nav-count" id="navCount" hidden>0</span>
+            </button>
+            <button type="button" class="adm-nav-link" data-view="resumen">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg>
+                <span>Resumen</span>
+            </button>
+
+            <button type="button" class="adm-nav-link" data-view="usuarios" data-perm="usuarios_ver">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>
+                <span>Usuarios</span>
+            </button>
+
+            <button type="button" class="adm-nav-link" data-view="roles" data-perm="roles_ver">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" /><path d="M9 12l2 2 4-4" /></svg>
+                <span>Roles</span>
+            </button>
+
+            <button type="button" class="adm-nav-link" data-view="ajustes" data-perm="ajustes_ver">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                </svg>
+                <span>Ajustes</span>
+            </button>
+        </nav>
+
+        <!-- Acciones derecha -->
+        <div class="adm-topbar-end">
+            <a class="adm-icon-btn" href="~/" target="_blank" rel="noopener" aria-label="Ver sitio" title="Ver sitio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
+            </a>
+
+            <div class="adm-user" id="userBox" hidden>
+                <button type="button" class="adm-avatar" id="userMenuBtn" aria-haspopup="true" aria-expanded="false" aria-label="Menú de usuario">
+                    <b id="userInitial">?</b>
+                    <span class="adm-avatar-ring"></span>
+                </button>
+
+                <div class="adm-dropdown" id="userMenu" hidden>
+                    <div class="adm-dropdown-head">
+                        <span class="adm-avatar adm-avatar-sm"><b id="userInitial2">?</b></span>
+                        <div class="adm-dropdown-head-info">
+                            <small>Sesión iniciada como</small>
+                            <strong id="userEmail"></strong>
+                        </div>
+                    </div>
+                    <div class="adm-dropdown-sep"></div>
+                    <a class="adm-dropdown-item" href="~/admin" id="goPanel">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1" /><rect x="14" y="3" width="7" height="5" rx="1" /><rect x="14" y="12" width="7" height="9" rx="1" /><rect x="3" y="16" width="7" height="5" rx="1" /></svg>
+                        Ir al panel
+                    </a>
+                    <a class="adm-dropdown-item" href="~/" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
+                        Ver sitio público
+                    </a>
+                    <div class="adm-dropdown-sep"></div>
+                    <button type="button" class="adm-dropdown-item is-danger" id="logoutBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" /></svg>
+                        Cerrar sesión
+                    </button>
+                </div>
+            </div>
+
+            <button type="button" class="adm-burger" id="navToggle" aria-label="Abrir menú" aria-expanded="false" hidden>
+                <i></i><i></i><i></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="adm-shell">
+        <main role="main" class="adm-content">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

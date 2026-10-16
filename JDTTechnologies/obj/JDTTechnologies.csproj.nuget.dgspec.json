@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\JDTTechnologies\\JDTTechnologies.csproj": {}
+    "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\jdttechnologies\\JDTTechnologies.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\JDTTechnologies\\JDTTechnologies.csproj": {
+    "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\jdttechnologies\\JDTTechnologies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\JDTTechnologies\\JDTTechnologies.csproj",
+        "projectUniqueName": "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\jdttechnologies\\JDTTechnologies.csproj",
         "projectName": "JDTTechnologies",
-        "projectPath": "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\JDTTechnologies\\JDTTechnologies.csproj",
+        "projectPath": "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\jdttechnologies\\JDTTechnologies.csproj",
         "packagesPath": "C:\\Users\\dougl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\JDTTechnologies\\obj\\",
+        "outputPath": "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\jdttechnologies\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

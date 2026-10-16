@@ -14,5 +14,16 @@ namespace JDTTechnologies.Controllers
         {
             return View();
         }
+
+        // Panel de administración: https://tusitio.com/admin
+        // La seguridad real la dan el login de Firebase Auth y las reglas de Firestore;
+        // esta página solo es la interfaz.
+        [Route("admin")]
+        public IActionResult Admin()
+        {
+            Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
+            Response.Headers["Cache-Control"] = "no-store";
+            return View();
+        }
     }
 }

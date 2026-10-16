@@ -32,3 +32,6 @@ C:\Users\dougl\source\repos\JDTTechnologies\JDTTechnologies\obj\Debug\net8.0\ref
 C:\Users\dougl\source\repos\JDTTechnologies\JDTTechnologies\obj\Debug\net8.0\JDTTechnologies.pdb
 C:\Users\dougl\source\repos\JDTTechnologies\JDTTechnologies\obj\Debug\net8.0\JDTTechnologies.genruntimeconfig.cache
 C:\Users\dougl\source\repos\JDTTechnologies\JDTTechnologies\obj\Debug\net8.0\ref\JDTTechnologies.dll
+C:\Users\dougl\source\repos\JDTTechnologies\JDTTechnologies\bin\Debug\net8.0\package-lock.json
+C:\Users\dougl\source\repos\JDTTechnologies\JDTTechnologies\bin\Debug\net8.0\package.json
+C:\Users\dougl\source\repos\JDTTechnologies\JDTTechnologies\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout_logueado.cshtml.rz.scp.css

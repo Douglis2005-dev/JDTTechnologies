@@ -484,23 +484,23 @@
                         <p class="form-message" id="formMessage"></p>
                     </form>
                     <aside class="contact-info reveal-right">
-                        <a href="mailto:info@jdttechnologics.com" class="info-item">
+                        <a href="mailto:info@jdttechnologics.com" class="info-item" data-cfg="mailto:contacto.correo">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <rect x="2" y="4" width="20" height="16" rx="2" />
                                 <path d="M22 7l-10 6L2 7" />
                             </svg>
                             <div>
                                 <strong>Correo</strong>
-                                <span>info@jdttechnologics.com</span>
+                                <span data-cfg="mailto:contacto.correo">info@jdttechnologics.com</span>
                             </div>
                         </a>
-                        <a href="tel:+34600000000" class="info-item">
+                        <a href="tel:+34600000000" class="info-item" data-cfg="tel:contacto.telefono">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                             </svg>
                             <div>
                                 <strong>Teléfono</strong>
-                                <span>+34 600 000 000</span>
+                                <span data-cfg="tel:contacto.telefono">+34 600 000 000</span>
                             </div>
                         </a>
                         <div class="info-item">
@@ -510,7 +510,7 @@
                             </svg>
                             <div>
                                 <strong>Ubicación</strong>
-                                <span>Madrid, España</span>
+                                <span data-cfg="contacto.ubicacion">Madrid, España</span>
                             </div>
                         </div>
                     </aside>
@@ -541,9 +541,11 @@
                     <p>&copy; 2026 JDT TECHNOLOGICS. Todos los derechos reservados.</p>
                 </div>
             </div>
+            <div class="footer-social" id="footerSocial"></div>
         </footer>
     </main>
-
     <script src="~/js/Home.js"></script>
+    <script type="module" src="~/js/site-config.js"></script>
+    <script type="module" src="~/js/firebase-contact.js"></script>
 </body>
 </html>
