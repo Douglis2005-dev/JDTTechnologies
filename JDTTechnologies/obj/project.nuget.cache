@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+JZWQ/cDQb0=",
+  "dgSpecHash": "eGJCk5FY3dM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\JDTTechnologies\\JDTTechnologies.csproj",
+  "projectFilePath": "C:\\Users\\dougl\\source\\repos\\JDTTechnologies\\jdttechnologies\\JDTTechnologies.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.typescript.msbuild\\7.0.1\\microsoft.typescript.msbuild.7.0.1.nupkg.sha512"
   ],

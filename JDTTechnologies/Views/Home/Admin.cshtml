@@ -1,0 +1,672 @@
+@{
+    Layout = "~/Views/Shared/_Layout_logueado.cshtml";
+    ViewData["Title"] = "Panel";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Panel | JDT TECHNOLOGICS</title>
+    <link rel="icon" type="image/png" href="~/images/JDTTechnologies.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
+<body class="admin-body is-login">
+    <main class="adm-main">
+
+        <!-- Cargando sesión -->
+        <section id="bootView" class="adm-center">
+            <p class="adm-muted">Cargando…</p>
+        </section>
+
+        <!-- Login -->
+        <section id="loginView" class="lg-page" hidden>
+            <aside class="lg-brand" aria-hidden="true">
+                <div class="lg-orb lg-orb-1"></div>
+                <div class="lg-orb lg-orb-2"></div>
+                <div class="lg-grid"></div>
+                <div class="lg-brand-inner">
+                    <img src="~/images/JDTTechnologies.jpeg" alt="" class="lg-logo">
+                    <h2>Tecnología <span>a tu medida</span></h2>
+                    <p>Gestiona las solicitudes de tus clientes desde un solo lugar.</p>
+                    <ul class="lg-points">
+                        <li>Consulta cada mensaje al instante</li>
+                        <li>Marca las solicitudes atendidas</li>
+                        <li>Exporta todo a CSV</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="lg-form-wrap">
+                <form id="loginForm" class="lg-form" novalidate>
+                    <a class="lg-back" href="~/">&larr; Volver al sitio</a>
+                    <img src="~/images/JDTTechnologies.jpeg" alt="JDT TECHNOLOGICS" class="lg-mobile-logo">
+                    <h1>Bienvenido</h1>
+                    <p class="lg-sub">Inicia sesión para ver las solicitudes.</p>
+
+                    <div class="lg-field">
+                        <input type="email" id="loginEmail" placeholder=" " autocomplete="username" required>
+                        <label for="loginEmail">Correo</label>
+                    </div>
+
+                    <div class="lg-field">
+                        <input type="password" id="loginPassword" placeholder=" " autocomplete="current-password" required>
+                        <label for="loginPassword">Contraseña</label>
+                        <button type="button" class="lg-eye" id="togglePass" aria-label="Mostrar contraseña">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                                <line class="lg-eye-slash" x1="3" y1="21" x2="21" y2="3" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button type="submit" class="adm-btn adm-btn-primary lg-submit" id="loginBtn">
+                        <span class="lg-btn-text">Entrar</span>
+                        <span class="lg-spinner" aria-hidden="true"></span>
+                    </button>
+                    <p class="adm-msg" id="loginMsg" role="alert"></p>
+                    <button type="button" class="adm-link" id="resetBtn">¿Olvidaste tu contraseña?</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sin permisos -->
+        <section id="deniedView" class="adm-center" hidden>
+            <div class="adm-card adm-login">
+                <h1>Sin acceso</h1>
+                <p class="adm-muted">Tu cuenta inició sesión, pero no tiene permisos de administrador.</p>
+                <button type="button" class="adm-btn adm-btn-primary" id="deniedLogout">Cerrar sesión</button>
+            </div>
+        </section>
+        <!-- Modal: crear/editar usuario -->
+        <dialog id="userDialog" class="adm-dialog adm-dialog-wide">
+            <form id="userForm" method="dialog">
+                <div class="adm-dialog-head">
+                    <h2 id="uTitle">Nuevo usuario</h2>
+                    <button type="button" class="adm-close" id="uClose" aria-label="Cerrar">×</button>
+                </div>
+
+                <div class="adm-form-grid">
+                    <label class="adm-field">
+                        <span>Nombre completo</span>
+                        <input type="text" id="uNombre" required maxlength="80">
+                    </label>
+
+                    <label class="adm-field">
+                        <span>Correo electrónico</span>
+                        <input type="email" id="uEmail" required maxlength="150" autocomplete="off">
+                    </label>
+
+                    <label class="adm-field" id="uPassWrap">
+                        <span>Contraseña temporal</span>
+                        <input type="text" id="uPass" minlength="8" autocomplete="new-password">
+                        <small class="adm-hint">Mínimo 8 caracteres. Se enviará al usuario para que la cambie.</small>
+                    </label>
+
+                    <label class="adm-field">
+                        <span>Rol</span>
+                        <select id="uRol" required></select>
+                    </label>
+
+                    <label class="adm-field adm-field-check">
+                        <input type="checkbox" id="uActivo" checked>
+                        <span>Cuenta activa</span>
+                    </label>
+                </div>
+
+                <p class="adm-msg" id="uMsg" role="alert"></p>
+
+                <div class="adm-dialog-actions">
+                    <button type="button" class="adm-btn adm-btn-ghost" id="uCancel">Cancelar</button>
+                    <button type="submit" class="adm-btn adm-btn-primary" id="uSave">Guardar</button>
+                </div>
+            </form>
+        </dialog>
+
+        <!-- Modal: crear/editar rol -->
+        <dialog id="roleDialog" class="adm-dialog adm-dialog-wide">
+            <form id="roleForm" method="dialog">
+                <div class="adm-dialog-head">
+                    <h2 id="rTitle">Nuevo rol</h2>
+                    <button type="button" class="adm-close" id="rClose" aria-label="Cerrar">×</button>
+                </div>
+
+                <div class="adm-form-grid">
+                    <label class="adm-field">
+                        <span>Nombre del rol</span>
+                        <input type="text" id="rNombre" required maxlength="40">
+                    </label>
+
+                    <label class="adm-field">
+                        <span>Color</span>
+                        <input type="color" id="rColor" value="#60a5fa">
+                    </label>
+
+                    <label class="adm-field adm-field-full">
+                        <span>Descripción</span>
+                        <input type="text" id="rDesc" maxlength="140">
+                    </label>
+                </div>
+
+                <h3 class="adm-subtitle">Permisos</h3>
+                <div class="adm-perms" id="rPerms"></div>
+
+                <p class="adm-msg" id="rMsg" role="alert"></p>
+
+                <div class="adm-dialog-actions">
+                    <button type="button" class="adm-btn adm-btn-ghost" id="rCancel">Cancelar</button>
+                    <button type="submit" class="adm-btn adm-btn-primary" id="rSave">Guardar</button>
+                </div>
+            </form>
+        </dialog>
+        <!-- Panel -->
+        <section id="panelView" hidden>
+            <div id="tabSolicitudes">
+                <div class="adm-head">
+                    <div>
+                        <h1>Solicitudes</h1>
+                        <p class="adm-muted">Mensajes recibidos desde el formulario de contacto.</p>
+                    </div>
+                </div>
+
+                <div class="adm-stats">
+                    <div class="adm-stat"><span id="statTotal">0</span><small>Total</small></div>
+                    <div class="adm-stat adm-stat-new"><span id="statNew">0</span><small>Nuevas</small></div>
+                    <div class="adm-stat"><span id="statDone">0</span><small>Atendidas</small></div>
+                    <div class="adm-stat"><span id="statWeek">0</span><small>Últimos 7 días</small></div>
+                </div>
+
+                <div class="adm-toolbar">
+                    <input type="search" id="fSearch" placeholder="Buscar por nombre, correo o mensaje…">
+                    <select id="fService">
+                        <option value="">Todos los servicios</option>
+                        <option value="medida">Desarrollo a medida</option>
+                        <option value="web">Desarrollo web</option>
+                        <option value="movil">Desarrollo móvil</option>
+                        <option value="automatizacion">Automatizaciones</option>
+                        <option value="otro">Otro</option>
+                        <option value="__none">Sin especificar</option>
+                    </select>
+                    <select id="fEstado">
+                        <option value="">Todos los estados</option>
+                        <option value="nuevo">Nuevas</option>
+                        <option value="atendida">Atendidas</option>
+                    </select>
+                    <button type="button" class="adm-btn adm-btn-ghost" id="refreshBtn">Actualizar</button>
+                    <button type="button" class="adm-btn adm-btn-ghost" id="csvBtn">Exportar CSV</button>
+                </div>
+
+                <p class="adm-msg" id="panelMsg" role="alert"></p>
+
+                <div class="adm-card adm-table-wrap">
+                    <table class="adm-table">
+                        <thead>
+                            <tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Servicio</th><th>Estado</th></tr>
+                        </thead>
+                        <tbody id="listBody"></tbody>
+                    </table>
+                    <p class="adm-empty" id="emptyMsg" hidden>No hay solicitudes que coincidan.</p>
+                </div>
+
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB: RESUMEN -->
+            <!-- ============================================ -->
+            <div id="tabResumen" hidden>
+                <div class="adm-head">
+                    <div>
+                        <h1>Resumen</h1>
+                        <p class="adm-muted">Vista general del rendimiento y las solicitudes recibidas.</p>
+                    </div>
+                    <div class="adm-head-actions">
+                        <select id="rangoDias" class="adm-select">
+                            <option value="7">Últimos 7 días</option>
+                            <option value="14" selected>Últimos 14 días</option>
+                            <option value="30">Últimos 30 días</option>
+                            <option value="90">Últimos 90 días</option>
+                            <option value="0">Todo el histórico</option>
+                        </select>
+                        <button type="button" class="adm-btn adm-btn-ghost" id="refreshSummary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" /></svg>
+                            Actualizar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="adm-kpis">
+                    <div class="adm-kpi">
+                        <div class="adm-kpi-head">
+                            <span class="adm-kpi-label">Total recibidas</span>
+                            <span class="adm-kpi-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 6L2 7" /></svg>
+                            </span>
+                        </div>
+                        <div class="adm-kpi-value" id="kpiTotal">0</div>
+                        <div class="adm-kpi-foot" id="kpiTotalTrend">—</div>
+                        <svg class="adm-kpi-spark" id="sparkTotal" viewBox="0 0 100 32" preserveAspectRatio="none"></svg>
+                    </div>
+
+                    <div class="adm-kpi">
+                        <div class="adm-kpi-head">
+                            <span class="adm-kpi-label">Nuevas</span>
+                            <span class="adm-kpi-icon is-gold">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" /></svg>
+                            </span>
+                        </div>
+                        <div class="adm-kpi-value" id="kpiNew">0</div>
+                        <div class="adm-kpi-foot" id="kpiNewTrend">—</div>
+                        <svg class="adm-kpi-spark" id="sparkNew" viewBox="0 0 100 32" preserveAspectRatio="none"></svg>
+                    </div>
+
+                    <div class="adm-kpi">
+                        <div class="adm-kpi-head">
+                            <span class="adm-kpi-label">Atendidas</span>
+                            <span class="adm-kpi-icon is-green">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" /><path d="M22 4L12 14.01l-3-3" /></svg>
+                            </span>
+                        </div>
+                        <div class="adm-kpi-value" id="kpiDone">0</div>
+                        <div class="adm-kpi-foot" id="kpiDoneTrend">—</div>
+                        <svg class="adm-kpi-spark" id="sparkDone" viewBox="0 0 100 32" preserveAspectRatio="none"></svg>
+                    </div>
+
+                    <div class="adm-kpi">
+                        <div class="adm-kpi-head">
+                            <span class="adm-kpi-label">Tasa de respuesta</span>
+                            <span class="adm-kpi-icon is-blue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg>
+                            </span>
+                        </div>
+                        <div class="adm-kpi-value" id="kpiRate">0%</div>
+                        <div class="adm-kpi-foot" id="kpiRateTrend">—</div>
+                        <svg class="adm-kpi-spark" id="sparkRate" viewBox="0 0 100 32" preserveAspectRatio="none"></svg>
+                    </div>
+                </div>
+
+                <!-- Fila: Donut + Evolución -->
+                <div class="adm-grid-2">
+                    <div class="adm-card adm-block">
+                        <div class="adm-block-head">
+                            <h3>Estado de las solicitudes</h3>
+                        </div>
+                        <div class="adm-donut-wrap">
+                            <svg class="adm-donut" viewBox="0 0 100 100" id="donutChart">
+                                <!-- Fondo (círculo base gris) -->
+                                <circle cx="50" cy="50" r="40" fill="none"
+                                        stroke="rgba(255,255,255,.06)" stroke-width="12" />
+
+                                <!-- Porción NUEVAS (amarillo) -->
+                                <circle cx="50" cy="50" r="40" fill="none"
+                                        stroke="#FACC15" stroke-width="12"
+                                        stroke-linecap="butt" id="donutNew"
+                                        stroke-dasharray="0 251"
+                                        transform="rotate(-90 50 50)" />
+
+                                <!-- Porción ATENDIDAS (verde) — va encima, más pequeña si hay menos -->
+                                <circle cx="50" cy="50" r="40" fill="none"
+                                        stroke="#34d399" stroke-width="12"
+                                        stroke-linecap="butt" id="donutDone"
+                                        stroke-dasharray="0 251"
+                                        transform="rotate(-90 50 50)" />
+                            </svg>
+                            <div class="adm-donut-center">
+                                <b id="donutRate">0%</b>
+                                <small>atendidas</small>
+                            </div>
+                        </div>
+                        <ul class="adm-legend">
+                            <li><span class="dot" style="background:#34d399"></span>Atendidas <b id="legendDone">0</b></li>
+                            <li><span class="dot" style="background:#FACC15"></span>Nuevas <b id="legendNew">0</b></li>
+                        </ul>
+                    </div>
+
+                    <div class="adm-card adm-block">
+                        <div class="adm-block-head">
+                            <h3>Evolución de solicitudes</h3>
+                            <span class="adm-muted" id="chartRangeLabel">Últimos 14 días</span>
+                        </div>
+                        <div class="adm-area-wrap">
+                            <svg class="adm-area" id="areaChart" viewBox="0 0 600 220" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#FACC15" stop-opacity=".45" />
+                                        <stop offset="100%" stop-color="#FACC15" stop-opacity="0" />
+                                    </linearGradient>
+                                </defs>
+                                <g class="adm-area-grid" id="areaGrid"></g>
+                                <path class="adm-area-line" id="areaPath" d="" />
+                                <polyline class="adm-area-points" id="areaPoints" points="" />
+                            </svg>
+                            <div class="adm-area-x" id="areaX"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fila: Servicios + Actividad reciente -->
+                <div class="adm-grid-2">
+                    <div class="adm-card adm-block">
+                        <div class="adm-block-head">
+                            <h3>Distribución por servicio</h3>
+                        </div>
+                        <div class="adm-bars" id="chartServicio"></div>
+                    </div>
+
+                    <div class="adm-card adm-block">
+                        <div class="adm-block-head">
+                            <h3>Actividad reciente</h3>
+                            <button type="button" class="adm-link-mini" id="goSolicitudes">Ver todas →</button>
+                        </div>
+                        <ul class="adm-activity" id="recentActivity"></ul>
+                        <p class="adm-empty" id="activityEmpty" hidden>Sin actividad reciente.</p>
+                    </div>
+                </div>
+
+                <!-- Embudo -->
+                <div class="adm-card adm-block">
+                    <div class="adm-block-head">
+                        <h3>Embudo de conversión</h3>
+                    </div>
+                    <div class="adm-funnel" id="funnel"></div>
+                </div>
+            </div>
+            <!-- ============================================ -->
+            <!-- TAB: USUARIOS -->
+            <!-- ============================================ -->
+            <div id="tabUsuarios" hidden>
+                <div class="adm-head">
+                    <div>
+                        <h1>Usuarios</h1>
+                        <p class="adm-muted">Administra quién puede acceder al panel y con qué rol.</p>
+                    </div>
+                    <button type="button" class="adm-btn adm-btn-primary" id="btnNuevoUsuario" data-perm="usuarios_crear">
+                        + Nuevo usuario
+                    </button>
+                </div>
+
+                <div class="adm-toolbar">
+                    <input type="search" id="fUserSearch" placeholder="Buscar por nombre o correo…">
+                    <select id="fUserRol"><option value="">Todos los roles</option></select>
+                    <select id="fUserEstado">
+                        <option value="">Todos los estados</option>
+                        <option value="activo">Activos</option>
+                        <option value="inactivo">Inactivos</option>
+                    </select>
+                    <button type="button" class="adm-btn adm-btn-ghost" id="refreshUsersBtn">Actualizar</button>
+                </div>
+
+                <p class="adm-msg" id="usersMsg" role="alert"></p>
+
+                <div class="adm-card adm-table-wrap">
+                    <table class="adm-table">
+                        <thead>
+                            <tr><th>Usuario</th><th>Correo</th><th>Rol</th><th>Estado</th><th>Creado</th><th></th></tr>
+                        </thead>
+                        <tbody id="usersBody"></tbody>
+                    </table>
+                    <p class="adm-empty" id="usersEmpty" hidden>No hay usuarios que coincidan.</p>
+                </div>
+            </div>
+
+            <!-- TAB: ROLES -->
+            <div id="tabRoles" hidden>
+                <div class="adm-head">
+                    <div>
+                        <h1>Roles y permisos</h1>
+                        <p class="adm-muted">Define qué puede hacer cada rol dentro del panel.</p>
+                    </div>
+                    <button type="button" class="adm-btn adm-btn-primary" id="btnNuevoRol" data-perm="roles_editar">
+                        + Nuevo rol
+                    </button>
+                </div>
+
+                <p class="adm-msg" id="rolesMsg" role="alert"></p>
+
+                <div class="adm-roles-grid" id="rolesGrid"></div>
+            </div>
+            <!-- ============================================ -->
+            <!-- TAB: ROLES -->
+            <!-- ============================================ -->
+            <div id="tabRoles" hidden>
+                <div class="adm-head">
+                    <div>
+                        <h1>Roles y permisos</h1>
+                        <p class="adm-muted">Define qué puede hacer cada rol dentro del panel.</p>
+                    </div>
+                    <button type="button" class="adm-btn adm-btn-primary" id="btnNuevoRol" data-perm="roles_editar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M12 5v14M5 12h14" /></svg>
+                        Nuevo rol
+                    </button>
+                </div>
+
+                <p class="adm-msg" id="rolesMsg" role="alert"></p>
+
+                <div class="adm-roles-grid" id="rolesGrid"></div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- TAB: AJUSTES -->
+            <!-- ============================================ -->
+            <div id="tabAjustes" hidden>
+                <div class="adm-head">
+                    <div>
+                        <h1>Ajustes del sitio</h1>
+                        <p class="adm-muted">Edita la información que aparece en el landing.</p>
+                    </div>
+                    <div class="adm-head-actions">
+                        <button type="button" class="adm-btn adm-btn-ghost" id="ajustesReset">
+                            Descartar cambios
+                        </button>
+                        <button type="button" class="adm-btn adm-btn-primary" id="ajustesSave" data-perm="ajustes_editar">
+                            Guardar cambios
+                        </button>
+                    </div>
+                </div>
+
+                <p class="adm-msg" id="ajustesMsg" role="alert"></p>
+
+                <!-- Bloque: Contacto -->
+                <div class="adm-card adm-block">
+                    <div class="adm-block-head">
+                        <h3>Contacto</h3>
+                    </div>
+                    <div class="adm-form-grid">
+                        <label class="adm-field">
+                            <span>Correo</span>
+                            <input type="email" id="cfgCorreo" placeholder="info@jdttechnologics.com">
+                        </label>
+                        <label class="adm-field">
+                            <span>Teléfono</span>
+                            <input type="tel" id="cfgTelefono" placeholder="+34 600 000 000">
+                        </label>
+                        <label class="adm-field adm-field-full">
+                            <span>Ubicación</span>
+                            <input type="text" id="cfgUbicacion" placeholder="Madrid, España">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bloque: Redes sociales -->
+                <div class="adm-card adm-block">
+                    <div class="adm-block-head">
+                        <h3>Redes sociales</h3>
+                        <small class="adm-muted">Deja vacío para ocultar el icono en el landing.</small>
+                    </div>
+                    <div class="adm-form-grid">
+                        <label class="adm-field">
+                            <span>Facebook</span>
+                            <input type="url" id="cfgFacebook" placeholder="https://facebook.com/…">
+                        </label>
+                        <label class="adm-field">
+                            <span>Instagram</span>
+                            <input type="url" id="cfgInstagram" placeholder="https://instagram.com/…">
+                        </label>
+                        <label class="adm-field">
+                            <span>LinkedIn</span>
+                            <input type="url" id="cfgLinkedin" placeholder="https://linkedin.com/…">
+                        </label>
+                        <label class="adm-field">
+                            <span>X / Twitter</span>
+                            <input type="url" id="cfgX" placeholder="https://x.com/…">
+                        </label>
+                        <label class="adm-field">
+                            <span>GitHub</span>
+                            <input type="url" id="cfgGithub" placeholder="https://github.com/…">
+                        </label>
+                        <label class="adm-field">
+                            <span>YouTube</span>
+                            <input type="url" id="cfgYoutube" placeholder="https://youtube.com/…">
+                        </label>
+                        <label class="adm-field">
+                            <span>TikTok</span>
+                            <input type="url" id="cfgTiktok" placeholder="https://tiktok.com/…">
+                        </label>
+                        <label class="adm-field">
+                            <span>WhatsApp</span>
+                            <input type="tel" id="cfgWhatsapp" placeholder="+34 600 000 000">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bloque: Metadatos SEO -->
+                <div class="adm-card adm-block">
+                    <div class="adm-block-head">
+                        <h3>SEO / Redes sociales</h3>
+                    </div>
+                    <div class="adm-form-grid">
+                        <label class="adm-field adm-field-full">
+                            <span>Título de la página</span>
+                            <input type="text" id="cfgMetaTitulo" maxlength="80"
+                                   placeholder="JDT TECHNOLOGICS | Tecnología a tu medida">
+                        </label>
+                        <label class="adm-field adm-field-full">
+                            <span>Descripción</span>
+                            <input type="text" id="cfgMetaDesc" maxlength="160"
+                                   placeholder="Desarrollo a medida, web, móvil y automatizaciones.">
+                        </label>
+                        <label class="adm-field adm-field-full">
+                            <span>Imagen para compartir (URL)</span>
+                            <input type="url" id="cfgMetaOgImage"
+                                   placeholder="https://jdttechnologics.com/og-image.jpg">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal usuario -->
+    <dialog id="userDialog" class="adm-dialog adm-dialog-wide">
+        <form id="userForm" method="dialog">
+            <div class="adm-dialog-head">
+                <h2 id="uTitle">Nuevo usuario</h2>
+                <button type="button" class="adm-close" id="uClose" aria-label="Cerrar">×</button>
+            </div>
+
+            <div class="adm-form-grid">
+                <label class="adm-field">
+                    <span>Nombre completo</span>
+                    <input type="text" id="uNombre" required maxlength="80">
+                </label>
+                <label class="adm-field">
+                    <span>Correo electrónico</span>
+                    <input type="email" id="uEmail" required maxlength="150" autocomplete="off">
+                </label>
+                <label class="adm-field" id="uPassWrap">
+                    <span>Contraseña temporal</span>
+                    <input type="text" id="uPass" minlength="8" autocomplete="new-password">
+                    <small class="adm-hint">Mínimo 8 caracteres.</small>
+                </label>
+                <label class="adm-field">
+                    <span>Rol</span>
+                    <select id="uRol" required></select>
+                </label>
+                <label class="adm-field adm-field-check">
+                    <input type="checkbox" id="uActivo" checked>
+                    <span>Cuenta activa</span>
+                </label>
+            </div>
+
+            <p class="adm-msg" id="uMsg" role="alert"></p>
+
+            <div class="adm-dialog-actions">
+                <button type="button" class="adm-btn adm-btn-ghost" id="uCancel">Cancelar</button>
+                <button type="submit" class="adm-btn adm-btn-primary" id="uSave">Guardar</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Modal rol -->
+    <dialog id="roleDialog" class="adm-dialog adm-dialog-wide">
+        <form id="roleForm" method="dialog">
+            <div class="adm-dialog-head">
+                <h2 id="rTitle">Nuevo rol</h2>
+                <button type="button" class="adm-close" id="rClose" aria-label="Cerrar">×</button>
+            </div>
+
+            <div class="adm-form-grid">
+                <label class="adm-field">
+                    <span>Nombre del rol</span>
+                    <input type="text" id="rNombre" required maxlength="40">
+                </label>
+                <label class="adm-field">
+                    <span>Color</span>
+                    <input type="color" id="rColor" value="#60a5fa">
+                </label>
+                <label class="adm-field adm-field-full">
+                    <span>Descripción</span>
+                    <input type="text" id="rDesc" maxlength="140">
+                </label>
+            </div>
+
+            <h3 class="adm-subtitle">Permisos</h3>
+            <div class="adm-perms" id="rPerms"></div>
+
+            <p class="adm-msg" id="rMsg" role="alert"></p>
+
+            <div class="adm-dialog-actions">
+                <button type="button" class="adm-btn adm-btn-ghost" id="rCancel">Cancelar</button>
+                <button type="submit" class="adm-btn adm-btn-primary" id="rSave">Guardar</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Detalle -->
+    <dialog id="detailDialog" class="adm-dialog">
+        <div class="adm-dialog-head">
+            <h2 id="dName"></h2>
+            <button type="button" class="adm-close" id="dClose" aria-label="Cerrar">×</button>
+        </div>
+        <dl class="adm-dl">
+            <dt>Fecha</dt>
+            <dd id="dDate"></dd>
+            <dt>Correo</dt>
+            <dd id="dEmail"></dd>
+            <dt>Teléfono</dt>
+            <dd id="dPhone"></dd>
+            <dt>Servicio</dt>
+            <dd id="dService"></dd>
+            <dt>Estado</dt>
+            <dd id="dEstado"></dd>
+        </dl>
+        <h3>Mensaje</h3>
+        <p class="adm-message" id="dMessage"></p>
+        <p class="adm-msg" id="dMsg" role="alert"></p>
+        <div class="adm-dialog-actions">
+            <a class="adm-btn adm-btn-ghost" id="dReply" href="#">Responder por correo</a>
+            <button type="button" class="adm-btn adm-btn-primary" id="dToggle">Marcar como atendida</button>
+        </div>
+    </dialog>
+
+    <script type="module" src="~/js/admin.js"></script>
+</body>
+</html>

@@ -2280,3 +2280,56 @@ img {
     display: block;
     object-fit: contain
 }
+
+/* Añadir al final de wwwroot/css/site.css */
+.form-message {
+    margin-top: 1rem;
+    min-height: 1.4em;
+    font-size: 0.95rem;
+    transition: opacity .3s ease;
+}
+
+    .form-message.success {
+        color: #3ecf8e;
+    }
+
+    .form-message.error {
+        color: #ff6b6b;
+    }
+
+/* Campo trampa anti-bots: invisible para personas */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Añadir al final de wwwroot/css/site.css */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    padding: 1.25rem 0 0;
+}
+
+    .social-links:empty {
+        display: none;
+    }
+
+.social-link {
+    padding: .45rem .95rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: .85rem;
+    font-weight: 500;
+    transition: all var(--transition);
+}
+
+    .social-link:hover {
+        color: var(--accent);
+        border-color: var(--border-hover);
+        box-shadow: 0 0 18px rgba(250, 204, 21, .12);
+    }
