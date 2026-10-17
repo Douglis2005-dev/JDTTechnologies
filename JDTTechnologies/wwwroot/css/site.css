@@ -2333,3 +2333,12 @@ img {
         border-color: var(--border-hover);
         box-shadow: 0 0 18px rgba(250, 204, 21, .12);
     }
+
+.number-value .counter {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+    .number-value .counter.counting {
+        transform: scale(1.05);
+    }

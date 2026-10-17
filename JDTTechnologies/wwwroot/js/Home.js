@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMenuToggle();
     initAutomationFlow();
     initWaspFlight();
+    initCounters();
 });
 
 /* ============================================
@@ -835,4 +836,63 @@ function initWaspFlight() {
             layout(); resetInk(); buildRound();
         }, 200);
     }).observe(hero);
+}
+
+/* ============================================
+   CONTADORES ANIMADOS (sección "Números")
+   ============================================ */
+function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    if (!counters.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const animate = (el) => {
+        // Leemos el target actual (que puede haber sido actualizado por Firebase)
+        const target = parseFloat(el.dataset.target) || 0;
+
+        // Si ya está en el target, no re-animamos
+        if (parseInt(el.textContent) === target && target !== 0) return;
+
+        if (reduceMotion) {
+            el.textContent = target;
+            return;
+        }
+
+        const DURATION = 1500;
+        const start = performance.now();
+        const startValue = parseInt(el.textContent) || 0; // Empieza desde donde estaba
+
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        const tick = (now) => {
+            const progress = Math.min((now - start) / DURATION, 1);
+            const value = Math.round(startValue + (easeOutCubic(progress) * (target - startValue)));
+            el.textContent = value;
+
+            if (progress < 1) {
+                requestAnimationFrame(tick);
+            } else {
+                el.textContent = target;
+            }
+        };
+
+        requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                animate(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    counters.forEach((c) => observer.observe(c));
+
+    // Exponer una función global para actualizar manualmente desde Firebase
+    window.updateCounters = () => {
+        counters.forEach(c => animate(c));
+    };
 }
