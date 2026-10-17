@@ -3,7 +3,14 @@ import {
     initializeFirestore, collection, getCountFromServer, query, where
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
-const firebaseConfig = { /* ... tu configuración ... */ };
+const firebaseConfig = {
+    apiKey: "AIzaSyBDEPIl9Mfot7LHMSz75wZUJfMzFM2eMXI",
+    authDomain: "jdttechnologics.firebaseapp.com",
+    projectId: "jdttechnologics",
+    storageBucket: "jdttechnologics.firebasestorage.app",
+    messagingSenderId: "460315228051",
+    appId: "1:460315228051:web:eb210912f827136c765a66"
+};
 
 const app = initializeApp(firebaseConfig, "metrics-app");
 const db = initializeFirestore(app, { experimentalForceLongPolling: true }, "default");
