@@ -1,6 +1,17 @@
-﻿# .NET build
-bin/
-obj/
+﻿# .NET Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio
+.vs/
 *.user
 *.suo
-.vs/
+*.userosscache
+*.sln.docstates
+
+# Archivos de entorno
+.env
+*.local
+sitio/
