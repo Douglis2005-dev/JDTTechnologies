@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "firebase": "^13.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^10.12.0"
-  }
-}
