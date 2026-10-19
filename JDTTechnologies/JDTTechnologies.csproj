@@ -28,4 +28,11 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\desarrollo-de-software-a-medida\" />
+    <Folder Include="wwwroot\desarrollo-web\" />
+    <Folder Include="wwwroot\desarrollo-de-apps-moviles\" />
+    <Folder Include="wwwroot\automatizacion-de-procesos\" />
+  </ItemGroup>
+
 </Project>
