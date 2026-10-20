@@ -28,4 +28,18 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\desarrollo-de-software-a-medida\" />
+    <Folder Include="wwwroot\desarrollo-web\" />
+    <Folder Include="wwwroot\desarrollo-de-apps-moviles\" />
+    <Folder Include="wwwroot\automatizacion-de-procesos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\automatizacion-de-procesos\index.html" />
+    <None Include="wwwroot\desarrollo-de-apps-moviles\index.html" />
+    <None Include="wwwroot\desarrollo-de-software-a-medida\index.html" />
+    <None Include="wwwroot\desarrollo-web\index.html" />
+  </ItemGroup>
+
 </Project>

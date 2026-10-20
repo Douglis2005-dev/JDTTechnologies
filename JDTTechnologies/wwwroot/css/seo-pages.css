@@ -1,0 +1,87 @@
+/* ============================================
+   JDT TECHNOLOGICS - Páginas de servicio (SEO)
+   Reutiliza las variables de site.css
+   ============================================ */
+
+/* Neutraliza reglas sobrantes de plantilla al final de site.css (body grid/transparent) */
+body.seo-page { display: block; place-items: initial; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+.sp-header {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    padding: .8rem clamp(1rem, 4vw, 2rem);
+    background: rgba(10, 14, 39, .88); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.sp-brand { display: flex; align-items: center; gap: .65rem; font: 600 1rem 'Space Grotesk', sans-serif; }
+.sp-brand img { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
+.sp-nav { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem; }
+.sp-nav a { padding: .5rem .8rem; border-radius: 10px; color: var(--text-muted); font-size: .9rem; font-weight: 500; transition: var(--transition); }
+.sp-nav a:hover, .sp-nav a[aria-current="page"] { color: var(--accent); background: rgba(250, 204, 21, .08); }
+.sp-nav .sp-nav-cta { background: var(--accent); color: var(--bg); font-weight: 600; margin-left: .35rem; }
+.sp-nav .sp-nav-cta:hover { background: var(--accent-hover); color: var(--bg); }
+
+main { max-width: var(--container); margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem); }
+
+.sp-crumbs { display: flex; gap: .5rem; padding: 1.5rem 0 0; font-size: .85rem; color: var(--text-dim); }
+.sp-crumbs a:hover { color: var(--accent); }
+
+.sp-hero { padding: 3rem 0 4rem; max-width: 820px; }
+.sp-tag { display: inline-block; margin-bottom: 1rem; padding: .3rem .8rem; border-radius: 999px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); background: rgba(250, 204, 21, .1); border: 1px solid var(--border-hover); }
+.sp-hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 1.25rem; }
+.sp-lead { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--text-muted); margin-bottom: 2rem; }
+.sp-actions { display: flex; flex-wrap: wrap; gap: .85rem; }
+.sp-cta, .sp-cta-2 { text-decoration: none; }
+.sp-cta-2 { border: 1px solid var(--border); color: var(--text); background: transparent; }
+.sp-cta-2:hover { border-color: var(--border-hover); color: var(--accent); }
+
+.sp-section { padding: 3.5rem 0; }
+.sp-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1.75rem; }
+.sp-alt { position: relative; }
+.sp-alt::before { content: ""; position: absolute; inset: 0 calc(50% - 50vw); background: var(--bg-alt); z-index: -1; }
+
+.sp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.sp-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; transition: var(--transition); }
+.sp-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+.sp-card h3 { font-size: 1.1rem; margin-bottom: .6rem; }
+.sp-card p { color: var(--text-muted); font-size: .95rem; }
+
+.sp-list { list-style: none; display: grid; gap: .9rem; max-width: 760px; }
+.sp-list li { position: relative; padding-left: 2rem; color: var(--text-muted); }
+.sp-list li::before { content: ""; position: absolute; left: 0; top: .35rem; width: 1.1rem; height: 1.1rem; border-radius: 50%;
+    background: rgba(250, 204, 21, .15) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FACC15' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 70% no-repeat; }
+
+.sp-steps { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.sp-step { display: flex; gap: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+.sp-step-n { flex: none; width: 2.2rem; height: 2.2rem; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--bg); font: 700 1rem 'Space Grotesk', sans-serif; }
+.sp-step h3 { font-size: 1.05rem; margin-bottom: .4rem; }
+.sp-step p { color: var(--text-muted); font-size: .93rem; }
+
+.sp-faqs { display: grid; gap: .75rem; max-width: 820px; }
+.sp-faq { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem 1.3rem; }
+.sp-faq[open] { border-color: var(--border-hover); }
+.sp-faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.sp-faq summary::-webkit-details-marker { display: none; }
+.sp-faq summary::after { content: "+"; color: var(--accent); font-size: 1.3rem; line-height: 1; }
+.sp-faq[open] summary::after { content: "\2212"; }
+.sp-faq p { margin-top: .8rem; color: var(--text-muted); }
+
+.sp-cta-band { margin: 2rem 0; padding: clamp(2rem, 5vw, 3.5rem); text-align: center; border-radius: 24px;
+    background: radial-gradient(circle at 30% 0%, rgba(250, 204, 21, .14), transparent 60%), var(--surface); border: 1px solid var(--border-hover); }
+.sp-cta-band h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: .75rem; }
+.sp-cta-band p { color: var(--text-muted); margin-bottom: 1.5rem; }
+
+.sp-others { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.sp-other { display: block; padding: 1.25rem 1.4rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); transition: var(--transition); }
+.sp-other:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+.sp-other strong { display: block; font-family: 'Space Grotesk', sans-serif; margin-bottom: .3rem; color: var(--accent); }
+.sp-other span { color: var(--text-muted); font-size: .88rem; }
+
+/* Enlace "Saber más" de las tarjetas de servicio del Index */
+.service-more { display: inline-block; margin-top: 1rem; font-size: .9rem; font-weight: 600; color: var(--accent); transition: var(--transition); }
+.service-more:hover { transform: translateX(4px); }
+
+@media (max-width: 640px) {
+    .sp-nav a:not(.sp-nav-cta) { display: none; }
+}

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jdttechnologics.com/sitemap.xml
+Sitemap: https://jdt.technologicsjdt.workers.dev/sitemap.xml
