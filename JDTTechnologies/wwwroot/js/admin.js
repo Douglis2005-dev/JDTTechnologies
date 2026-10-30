@@ -12,6 +12,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import { initUsersModule } from "./admin-users.js";
 import { initSettingsModule } from "./admin-settings.js";
+import { initProspectosModule } from "./admin-prospectos.js";
 
 /* ============================================
    CONFIGURACIÓN
@@ -179,7 +180,7 @@ document.querySelectorAll("[data-view]").forEach((b) =>
 );
 
 function showTab(name) {
-    if (!["solicitudes", "resumen", "usuarios", "roles", "ajustes"].includes(name)) {
+    if (!["solicitudes", "resumen", "usuarios", "roles", "ajustes", "prospectos"].includes(name)) {
         name = "solicitudes";
     }
     $("tabSolicitudes").hidden = name !== "solicitudes";
@@ -187,6 +188,7 @@ function showTab(name) {
     $("tabUsuarios").hidden = name !== "usuarios";
     $("tabRoles").hidden = name !== "roles";
     $("tabAjustes").hidden = name !== "ajustes";
+    $("tabProspectos").hidden = name !== "prospectos";
 
     document.querySelectorAll("[data-view]").forEach((b) => {
         const on = b.dataset.view === name;
@@ -195,14 +197,16 @@ function showTab(name) {
     });
 
     if (name === "resumen") renderSummary();
+    // (Opcional) refrescar prospectos al entrar
+    if (name === "prospectos") window.__prospectos?.reload();
 
-    history.replaceState(null, "",
-        name === "solicitudes" ? location.pathname + location.search : "#" + name);
+    history.replaceState(null, "", name === "solicitudes"
+        ? location.pathname + location.search
+        : "#" + name);
 
     closeMenus();
     window.scrollTo(0, 0);
 }
-
 /* ============================================
    PERMISOS
    ============================================ */
@@ -234,21 +238,28 @@ onAuthStateChanged(auth, async (user) => {
             showView("panel");
 
             window.__jdt = await initUsersModule({
-    db, auth, firebaseConfig,
-    currentUser: user,
-    showView: showTab,
-    $, setMsg, withTimeout
-});
-console.log("[auth] perms:", window.__jdt.perms);
-applyPermissions(window.__jdt.perms);
+                db, auth, firebaseConfig,
+                currentUser: user,
+                showView: showTab,
+                $, setMsg, withTimeout
+            });
 
-// ➕ Inicializar ajustes
-window.__settings = await initSettingsModule({
-    db,
-    currentUser: user,
-    $, setMsg, withTimeout,
-    perms: window.__jdt.perms
-});
+            window.__prospectos = await initProspectosModule({
+                db,
+                currentUser: user,
+                $, setMsg, withTimeout,
+                perms: window.__jdt.perms
+            });
+            console.log("[auth] perms:", window.__jdt.perms);
+            applyPermissions(window.__jdt.perms);
+
+            // ➕ Inicializar ajustes
+            window.__settings = await initSettingsModule({
+                db,
+                currentUser: user,
+                $, setMsg, withTimeout,
+                perms: window.__jdt.perms
+            });
 
             const hash = location.hash.replace("#", "");
             const startTab = ["solicitudes", "resumen", "usuarios", "roles"].includes(hash) ? hash : "solicitudes";

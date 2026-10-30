@@ -24,7 +24,9 @@ export const PERMISOS = [
     { id: "roles_ver", label: "Ver roles", grupo: "Roles" },
     { id: "roles_editar", label: "Editar roles", grupo: "Roles" },
     { id: "ajustes_ver", label: "Ver ajustes", grupo: "Ajustes" },
-    { id: "ajustes_editar", label: "Editar ajustes", grupo: "Ajustes" }
+    { id: "ajustes_editar", label: "Editar ajustes", grupo: "Ajustes" },
+    { id: "prospectos_ver", label: "Ver prospectos", grupo: "Prospectos" },
+    { id: "prospectos_editar", label: "Editar prospectos", grupo: "Prospectos" }
 ];
 
 /* ============================================
